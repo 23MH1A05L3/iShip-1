@@ -282,5 +282,25 @@ function reloadStoredData() {
   calculateTotals();
 }
 
+const sidebar = document.getElementById("sidebar");
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeSidebarBtn = document.getElementById("closeSidebarBtn");
+
+  // Show sidebar when menu button is clicked
+  mobileMenuBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");
+  });
+
+  // Close sidebar when 'X' button is clicked
+  closeSidebarBtn.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+  });
+
+  // Optional: Close sidebar when clicking outside of it
+  document.addEventListener("click", (e) => {
+    if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+      sidebar.classList.remove("open");
+    }
+  });
 
 // on clicking reset all the details given in the page should reset ,,but that data in the local storage should
